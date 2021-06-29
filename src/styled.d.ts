@@ -9,6 +9,7 @@ declare module "styled-components" {
       primary: string;
       secondary: string;
       textAccept: string;
+      textGrey: string;
     };
     constants: {
       borderRadiusAccept: string;

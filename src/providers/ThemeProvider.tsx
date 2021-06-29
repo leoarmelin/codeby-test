@@ -9,6 +9,7 @@ const theme = {
     primary: "#FFF",
     secondary: "#3B74F2",
     textAccept: "#22811D",
+    textGrey: "#BBBBBB",
   },
   constants: {
     borderRadiusAccept: "2rem",
