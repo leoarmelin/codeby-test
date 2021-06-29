@@ -17,6 +17,8 @@ import {
 import { ProductResponse } from "../interfaces/ProductResponse";
 import numberToMoney from "../utils/numberToMoney";
 import BelowPriceService from "../services/BelowPriceService";
+import mockProductLoaderData from "../loaders/ProductLoader/mockData";
+import ProductLoader from "../loaders/ProductLoader";
 
 export default function Cart(): JSX.Element {
   const [data, setData] = useState({} as ProductResponse);
@@ -41,32 +43,30 @@ export default function Cart(): JSX.Element {
     setIsLoading(false);
   }, [isAbovePrice]);
 
-  if (!data) {
-    return <h1>Loading</h1>;
-  }
-
-  if (!data.items) {
-    return <h1>Loading</h1>;
-  }
-
   return (
     <Container>
       <Content>
         <Title>Meu carrinho</Title>
 
         <ProductsContainer>
-          {data.items.map((product) => (
-            <Product item={product} key={product.uniqueId} />
-          ))}
+          {data.items
+            ? data.items.map((product) => (
+                <Product item={product} key={product.uniqueId} />
+              ))
+            : mockProductLoaderData.map((product) => (
+                <ProductLoader key={product.id} />
+              ))}
         </ProductsContainer>
 
         <PriceContainer>
           <PriceRow>
             <PriceText>Total</PriceText>
-            <PriceValue>{numberToMoney(data.value / 100)}</PriceValue>
+            <PriceValue>
+              {data.value ? numberToMoney(data.value / 100) : " "}
+            </PriceValue>
           </PriceRow>
 
-          {data.value > 1000 && (
+          {data.value && data.value > 1000 && (
             <ShippingText>Parabéns, sua compra tem frete grátis !</ShippingText>
           )}
         </PriceContainer>
