@@ -1,7 +1,14 @@
-import React from "react";
+import ThemeProvider from "./providers/ThemeProvider";
+import GlobalStyles from "./styles/global";
+import Cart from "./pages/Cart";
 
-function App() {
-  return <h1>Hello, World!</h1>;
+function App(): JSX.Element {
+  return (
+    <ThemeProvider>
+      <Cart />
+      <GlobalStyles />
+    </ThemeProvider>
+  );
 }
 
 export default App;
