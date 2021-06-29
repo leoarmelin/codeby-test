@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+Projeto feito em React.js, utilizando create-react-app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inicialização
 
-## Available Scripts
+Dentro da pasta raiz, instale os pacotes através do comando:
 
-In the project directory, you can run:
+```bash
+yarn install
+```
 
-### `yarn start`
+Em dois terminais, paralelamente, rode os comandos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+yarn server
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+yarn start
+```
 
-### `yarn test`
+O comando `yarn server` é utilizado para rodar um servidor local, possibilitando requisições à uma API local.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Por fim, abra [http://localhost:3000/](http://localhost:3000/) para visualizar o projeto.
 
-### `yarn build`
+## Tecnologias utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React.js:** escolhi por conta de ser a ferramenta que possuo mais familiaridade. Contudo, caso houvesse a opção de utilizar Next.js, escolheria, por conta da facilidade de trabalhar com SEO e SSR.
+- **Styled components:** ao unir essa biblioteca com a tipagem do Typescript, podemos facilmente seguir o desenvolvimento voltado à componentes (CDD), facilitando a manutenção do website e a implementação de futuras features.
+- **Json server:** facilita o uso de bancos de dados que ainda não estão em nuvem, apesar das limitações.
+- **Axios:** escolhi por achar seu uso simples, além de ter familiaridade com trabalhos passados.
+- **Eslint/prettier:** mantém o padrão de código e boas práticas no mesmo. Além disso, reforça a necessidade da tipagem presente no Typescript.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Observações
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Para navegar entre os casos de "acima de 10 reais" e "abaixo de 10 reais", basta clicar no botão de finalizar a compra.
 
-### `yarn eject`
+- A fim de simular o tempo de resposta em requisições para o servidor local, foi colocado um delay de 750ms na inicialização do `json server`, sendo ele:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+"server": "json-server server.json -w -d 750 -p 3333"
+```
