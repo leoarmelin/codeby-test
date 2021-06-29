@@ -10,6 +10,8 @@ export const Container = styled.div`
 `;
 
 export const ProductImg = styled.img`
+  min-height: 7rem;
+  min-width: 7rem;
   height: 7rem;
   width: 7rem;
 

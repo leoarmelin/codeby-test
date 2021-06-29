@@ -24,6 +24,13 @@ export const Content = styled.main`
   box-shadow: 1px 10px 26px 4px rgba(0, 0, 0, 0.26);
   -webkit-box-shadow: 1px 10px 26px 4px rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 1px 10px 26px 4px rgba(0, 0, 0, 0.26);
+
+  @media (max-width: 480px) {
+    height: 100%;
+    width: 100%;
+
+    border-radius: none;
+  }
 `;
 
 export const Title = styled.h1`
@@ -110,6 +117,14 @@ export const ShippingText = styled.p`
 
   background-color: ${({ theme }) => theme.colors.bgAccept};
   color: ${({ theme }) => theme.colors.textAccept};
+
+  @media (max-width: 360px) {
+    width: 100%;
+
+    padding: 0.25rem 0;
+
+    font-size: 0.95rem;
+  }
 `;
 
 export const Button = styled.button`
@@ -131,4 +146,8 @@ export const Button = styled.button`
 
   background-color: ${({ theme }) => theme.colors.secondary};
   color: #fff;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
 `;
