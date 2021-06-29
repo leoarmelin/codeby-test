@@ -21,6 +21,12 @@ import BelowPriceService from "../services/BelowPriceService";
 export default function Cart(): JSX.Element {
   const [data, setData] = useState({} as ProductResponse);
   const [isAbovePrice, setIsAbovePrice] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = () => {
+    setIsLoading(true);
+    setIsAbovePrice(!isAbovePrice);
+  };
 
   useEffect(() => {
     if (isAbovePrice) {
@@ -32,6 +38,7 @@ export default function Cart(): JSX.Element {
         setData(responseData);
       });
     }
+    setIsLoading(false);
   }, [isAbovePrice]);
 
   if (!data) {
@@ -64,8 +71,8 @@ export default function Cart(): JSX.Element {
           )}
         </PriceContainer>
 
-        <Button onClick={() => setIsAbovePrice(!isAbovePrice)}>
-          Finalizar compra
+        <Button onClick={handleSubmit} disabled={isLoading}>
+          {isLoading ? "..." : "Finalizar compra"}
         </Button>
       </Content>
     </Container>
